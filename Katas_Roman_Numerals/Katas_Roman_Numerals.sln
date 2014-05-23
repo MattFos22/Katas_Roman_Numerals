@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katas_Roman_Numerals", "Katas_Roman_Numerals\Katas_Roman_Numerals.csproj", "{AC42E714-669B-4ADC-BA63-13BB08CC42E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata_Roman_Numerals_Tests", "Kata_Roman_Numerals_Tests\Kata_Roman_Numerals_Tests.csproj", "{2A47BD59-8614-4C92-B6AE-3FACFFC48DB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC42E714-669B-4ADC-BA63-13BB08CC42E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC42E714-669B-4ADC-BA63-13BB08CC42E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC42E714-669B-4ADC-BA63-13BB08CC42E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC42E714-669B-4ADC-BA63-13BB08CC42E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A47BD59-8614-4C92-B6AE-3FACFFC48DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A47BD59-8614-4C92-B6AE-3FACFFC48DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A47BD59-8614-4C92-B6AE-3FACFFC48DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A47BD59-8614-4C92-B6AE-3FACFFC48DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
