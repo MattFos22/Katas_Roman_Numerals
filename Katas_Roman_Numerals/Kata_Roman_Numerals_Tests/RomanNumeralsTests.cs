@@ -9,9 +9,9 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_1_App_Returns_I()
         {
-            RomanNumerals rn = new RomanNumerals();
+            var rn = new RomanNumerals();
 
-            string romanNumeral = rn.GetRomanNumeral("1");
+            var romanNumeral = rn.GetRomanNumeral("1");
 
             Assert.AreEqual<string>("I", romanNumeral);
         
@@ -20,9 +20,9 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_2_App_Returns_II()
         {
-            RomanNumerals rn = new RomanNumerals();
+            var rn = new RomanNumerals();
 
-            string romanNumeral = rn.GetRomanNumeral("2");
+            var romanNumeral = rn.GetRomanNumeral("2");
 
             Assert.AreEqual<string>("II", romanNumeral);
         }
@@ -30,9 +30,9 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_5_App_Returns_V()
         {
-            RomanNumerals rn = new RomanNumerals();
+            var rn = new RomanNumerals();
 
-            string romanNumeral = rn.GetRomanNumeral("5");
+            var romanNumeral = rn.GetRomanNumeral("5");
 
             Assert.AreEqual<string>("V", romanNumeral);
         }
@@ -40,11 +40,32 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_30_App_Returns_XXX()
         {
-            RomanNumerals rn = new RomanNumerals();
+            var rn = new RomanNumerals();
 
-            string romanNumeral = rn.GetRomanNumeral("30");
+            var romanNumeral = rn.GetRomanNumeral("30");
 
             Assert.AreEqual<string>("XXX", romanNumeral);
         }
+
+        [TestMethod]
+        public void When_I_Enter_37_App_Returns_XXXVII()
+        {
+            var rn = new RomanNumerals();
+
+            var romanNumeral = rn.GetRomanNumeral("37");
+
+            Assert.AreEqual<string>("XXXVII", romanNumeral);
+        }
+
+        [TestMethod]
+        public void When_I_Enter_40_App_Returns_XL()
+        {
+            var rn = new RomanNumerals();
+
+            var romanNumeral = rn.GetRomanNumeral("40");
+
+            Assert.AreEqual<string>("XL", romanNumeral);            
+        }
+    
     }
 }

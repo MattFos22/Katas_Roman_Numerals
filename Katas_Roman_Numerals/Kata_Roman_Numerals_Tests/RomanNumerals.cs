@@ -1,72 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 
 namespace Kata_Roman_Numerals_Tests
 {
-    class RomanNumerals
+    public class RomanNumerals
     {
-        public int numberOfOnes;
-        public int numberOfFives;
-        public int numberOfTens;
-        public int numberOfHundreds;
-        public string romanNumeral;
+        public int NumberOfOnes;
+        public int NumberOfFives;
+        public int NumberOfTens;
+        public int NumberOfHundreds;
+        public string RomanNumeral;
+        public INumericRules NumericalRules;
+        private readonly ICharacterFoundListener _listener;
 
-        public RomanNumerals()
+        public RomanNumerals(ICharacterFoundListener listener)
         {
+            _listener = listener;
+        }
 
+        public string GetCharactersFromNumberType(string numberUnit, int number)
+        {
+            //put loop around
+            string returnCharacter = NumericLookup[numberUnit];
+            _listener.NumericCharacterRequestedFound(numberUnit);
+            // to here
+            return returnCharacter;
         }
 
         internal string GetRomanNumeral(string p)
         {
             ChunkNumbers(p);
 
-            if(numberOfHundreds > 0)
-            {
-                appendToString(numberOfHundreds, "C");
-            }
-            if(numberOfTens > 0)
-            {
-                appendToString(numberOfTens, "X");
-            }
-            if(numberOfFives > 0)
-            {
-                appendToString(numberOfFives, "V");
-            }
-            if(numberOfOnes > 0)
-            {
-                appendToString(numberOfOnes, "I");
-            }
+            GetCharactersFromNumberType("Ones", NumberOfOnes);
 
-            return romanNumeral;
+            //if(NumberOfHundreds > 0)
+            //{
+            //    AppendToString(NumberOfHundreds, "C");
+            //}
+            //if(NumberOfTens > 0)
+            //{
+            //    AppendToString(NumberOfTens, "X");                           
+            //}
+            //if(NumberOfFives > 0)
+            //{
+            //    AppendToString(NumberOfFives, "V");
+            //}
+            //if(NumberOfOnes > 0)
+            //{
+            //    AppendToString(NumberOfOnes, "I");
+            //}
+
+            return RomanNumeral;
         }
 
-        private void appendToString(int numberOfAppends, string romanCharacterToAppend)
+        #region Assembly
+        private void AppendToString(int numberOfAppends, string romanCharacterToAppend)
         {
-            StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < numberOfAppends; i++)
+            var sb = new StringBuilder();
+            for(var i = 0; i < numberOfAppends; i++)
             {
                 sb.Append(romanCharacterToAppend);
             }
 
-            romanNumeral += sb;
+            RomanNumeral += sb;
         }
 
         private void ChunkNumbers(string strNumber)
         {
             int originalNumber;
             int.TryParse(strNumber, out originalNumber);
-            int tempNumber;
 
-            numberOfHundreds = originalNumber / 100;
-            numberOfTens = (originalNumber - (numberOfHundreds * 100)) / 10; 
-            tempNumber = (originalNumber - (numberOfHundreds * 100));
-            tempNumber = (tempNumber - (numberOfTens * 10));
-            numberOfFives = (tempNumber / 5);
-            tempNumber = ((numberOfFives > 0) ? 5 : 0);
+            NumberOfHundreds = originalNumber / 100;
+            NumberOfTens = (originalNumber - (NumberOfHundreds * 100)) / 10; 
+            int tempNumber = (originalNumber - (NumberOfHundreds * 100));
+            tempNumber = (tempNumber - (NumberOfTens * 10));
+            NumberOfFives = (tempNumber / 5);
+            tempNumber = ((NumberOfFives > 0) ? tempNumber - 5 : tempNumber);
 
-            numberOfOnes = tempNumber;
+            NumberOfOnes = tempNumber;
         }
+        #endregion
+
     }
 }

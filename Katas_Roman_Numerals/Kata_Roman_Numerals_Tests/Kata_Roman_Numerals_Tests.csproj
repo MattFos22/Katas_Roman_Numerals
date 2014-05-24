@@ -50,6 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ICharacterExceptionListener.cs" />
+    <Compile Include="ICharacterFoundListener.cs" />
+    <Compile Include="INumericRules.cs" />
+    <Compile Include="RomanNumeralCharacterSet.cs" />
     <Compile Include="RomanNumerals.cs" />
     <Compile Include="RomanNumeralsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
