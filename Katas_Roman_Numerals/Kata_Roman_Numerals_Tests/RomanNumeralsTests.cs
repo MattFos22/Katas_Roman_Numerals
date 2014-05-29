@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kata_Roman_Numerals_Tests
@@ -9,9 +10,9 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_1_App_Returns_I()
         {
-            var rn = new RomanNumerals();
+            var presenter = new RomanNumeralPresenter();
 
-            var romanNumeral = rn.GetRomanNumeral("1");
+            var romanNumeral = presenter.GetRomanNumerals("1");
 
             Assert.AreEqual<string>("I", romanNumeral);
         
@@ -20,9 +21,9 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_2_App_Returns_II()
         {
-            var rn = new RomanNumerals();
+            var presenter = new RomanNumeralPresenter();
 
-            var romanNumeral = rn.GetRomanNumeral("2");
+            var romanNumeral = presenter.GetRomanNumerals("2");
 
             Assert.AreEqual<string>("II", romanNumeral);
         }
@@ -30,9 +31,9 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_5_App_Returns_V()
         {
-            var rn = new RomanNumerals();
+            var presenter = new RomanNumeralPresenter();
 
-            var romanNumeral = rn.GetRomanNumeral("5");
+            var romanNumeral = presenter.GetRomanNumerals("5");
 
             Assert.AreEqual<string>("V", romanNumeral);
         }
@@ -40,19 +41,38 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_30_App_Returns_XXX()
         {
-            var rn = new RomanNumerals();
+            var rn = new RomanNumeralPresenter();
 
-            var romanNumeral = rn.GetRomanNumeral("30");
+            var romanNumeral = rn.GetRomanNumerals("30");
 
             Assert.AreEqual<string>("XXX", romanNumeral);
         }
 
         [TestMethod]
+        public void When_I_Enter_4_App_Returns_IV()
+        {
+
+            var chunker = new RomanNumeralChunker("4"); // fix this - shouldnt be processing before the presenter calls
+            var presenter = new RomanNumeralPresenter(chunker, );
+            var characterExceptions = new RomanCharacterRuleExceptionManager(presenter);
+            var characterSet = new RomanNumeralCharacterSet();
+            var getter = new RomanNumeralGetter(characterExceptions, characterSet);
+
+
+            
+
+
+            var romanNumeral = presenter.GetRomanNumerals("4");
+
+            Assert.AreEqual<string>("IV", romanNumeral);
+        }
+
+        [TestMethod]
         public void When_I_Enter_37_App_Returns_XXXVII()
         {
-            var rn = new RomanNumerals();
+            var rn = new RomanNumeralPresenter();
 
-            var romanNumeral = rn.GetRomanNumeral("37");
+            var romanNumeral = rn.GetRomanNumerals("37");
 
             Assert.AreEqual<string>("XXXVII", romanNumeral);
         }
@@ -60,9 +80,9 @@ namespace Kata_Roman_Numerals_Tests
         [TestMethod]
         public void When_I_Enter_40_App_Returns_XL()
         {
-            var rn = new RomanNumerals();
+            var rn = new RomanNumeralPresenter();
 
-            var romanNumeral = rn.GetRomanNumeral("40");
+            var romanNumeral = rn.GetRomanNumerals("40");
 
             Assert.AreEqual<string>("XL", romanNumeral);            
         }

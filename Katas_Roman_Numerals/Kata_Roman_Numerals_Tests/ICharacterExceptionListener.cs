@@ -1,7 +1,7 @@
 namespace Kata_Roman_Numerals_Tests
 {
-    internal interface ICharacterExceptionListener
+    public interface ICharacterExceptionListener
     {
-        void CharacterExceptionTriggered(string exceptionCharacter);
+        void CharacterSetRuleExceptionTriggered(string exceptionCharacter);
     }
 }

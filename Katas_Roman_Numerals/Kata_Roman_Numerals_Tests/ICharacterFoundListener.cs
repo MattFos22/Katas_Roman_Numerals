@@ -2,6 +2,6 @@
 {
     public interface ICharacterFoundListener
     {
-        void NumericCharacterRequestedFound(string numberUnit);
+        void NumericCharacterRequestedFound(string numberUnit, string romanNumeralToUse);
     }
 }

@@ -50,11 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CharacterExceptionPublisher.cs" />
+    <Compile Include="CharacterFoundPublisher.cs" />
+    <Compile Include="RomanNumeralChunker.cs" />
     <Compile Include="ICharacterExceptionListener.cs" />
     <Compile Include="ICharacterFoundListener.cs" />
-    <Compile Include="INumericRules.cs" />
+    <Compile Include="RomanCharacterRuleExceptionManager.cs" />
     <Compile Include="RomanNumeralCharacterSet.cs" />
-    <Compile Include="RomanNumerals.cs" />
+    <Compile Include="RomanNumeralGetter.cs" />
+    <Compile Include="RomanNumeralPresenter.cs" />
     <Compile Include="RomanNumeralsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
